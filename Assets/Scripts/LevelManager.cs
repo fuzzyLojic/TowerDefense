@@ -16,6 +16,8 @@ public class LevelManager : Singleton<LevelManager>
     [SerializeField] private GameObject bluePortalPrefab;
     [SerializeField] private GameObject redPortalPrefab;
 
+    private Point mapSize;
+
     public Dictionary<Point, TileScript> Tiles {get; set;}
 
     public float TileSize{
@@ -69,7 +71,9 @@ public class LevelManager : Singleton<LevelManager>
     private void CreateLevel(){
         Tiles = new Dictionary<Point, TileScript>();
 
-        string[] mapData = ReadLevelText();
+        string[] mapData = ReadLevelText();     // to read level map grid from text file
+
+        mapSize = new Point(mapData[0].ToCharArray().Length, mapData.Length);   // x value of map, y value of map
 
         int mapX = mapData[0].ToCharArray().Length;
         int mapY = mapData.Length;
@@ -127,4 +131,10 @@ public class LevelManager : Singleton<LevelManager>
         Instantiate(redPortalPrefab, Tiles[redSpawn].GetComponent<TileScript>().WorldPosition, Quaternion.identity);
 
     }
+
+    // test if tile is in-bounds of map or if trying to read something that doesn't exist
+    public bool InBounds(Point position){
+        return position.X >= 0 && position.Y >= 0 && position.X < mapSize.X && position.Y < mapSize.Y;
+    }
+
 }
