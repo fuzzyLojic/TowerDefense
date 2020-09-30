@@ -28,10 +28,16 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    public ObjectPool Pool { get; set; }
+
+    private void Awake() {
+        Pool = GetComponent<ObjectPool>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        Currency = 5;
+        Currency = 100;
     }
 
     // Update is called once per frame
@@ -64,5 +70,41 @@ public class GameManager : Singleton<GameManager>
         if(Input.GetKeyDown(KeyCode.Escape)){
             Hover.Instance.Deactivate();
         }
+    }
+
+    public void StartWave(){
+        StartCoroutine(SpawnWave());
+    }
+
+    private IEnumerator SpawnWave(){
+        LevelManager.Instance.GeneratePath();
+
+        int monsterIndex = Random.Range(0, 4);
+
+        // for debugging
+        // monsterIndex = 3;
+
+        string type = string.Empty;
+
+        switch(monsterIndex){
+            case 0:
+                type = "BlueMonster";
+                break;
+            case 1:
+                type = "RedMonster";
+                break;
+            case 2:
+                type = "GreenMonster";
+                break;
+            case 3:
+                type = "PurpleMonster";
+                break;
+        }
+
+        Monster monster = Pool.GetObject(type).GetComponent<Monster>();
+        monster.Spawn();
+
+        yield return new WaitForSeconds(2.5f);
+
     }
 }

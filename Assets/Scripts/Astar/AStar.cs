@@ -18,7 +18,7 @@ public static class AStar
         }
     }
 
-    public static void GetPath(Point start, Point goal){
+    public static Stack<Node> GetPath(Point start, Point goal){
         if(nodes == null){
             CreateNodes();
         }
@@ -89,11 +89,11 @@ public static class AStar
             }
         }
 
-        
+        return finalPath;
 
         //*** THIS IS FOR DEBUGGING, NEEDS TO BE REMOVED LATER ***//
-        GameObject.Find("AStarDebugger").GetComponent<AStarDebugger>().DebugPath(openList, closedList, finalPath);
-        Debug.Log("finished GetPath");
+        // GameObject.Find("AStarDebugger").GetComponent<AStarDebugger>().DebugPath(openList, closedList, finalPath);
+        // Debug.Log("finished GetPath");
     }
 
     // this function is to prevent corner cutting

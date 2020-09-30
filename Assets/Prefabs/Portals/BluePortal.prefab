@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8890263263990154392}
   - component: {fileID: 1164039663256652952}
   - component: {fileID: 8612545970288349377}
+  - component: {fileID: -6838782666371265813}
   m_Layer: 0
   m_Name: BluePortal
   m_TagString: Untagged
@@ -102,3 +103,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-6838782666371265813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7061103057440583306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f4151b5a81443c49ba5a3745ac46423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

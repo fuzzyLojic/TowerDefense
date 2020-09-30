@@ -15,16 +15,16 @@ public class AStarDebugger : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        ClickTile();
+    // comment in Update function to use AStarDebugger
+    // void Update()
+    // {
+    //     ClickTile();
 
-        if(Input.GetKeyDown(KeyCode.Space)){
-            Debug.Log("space down");
-            AStar.GetPath(start.GridPosition, goal.GridPosition);
-        }
-    }
+    //     if(Input.GetKeyDown(KeyCode.Space)){
+    //         Debug.Log("space down");
+    //         AStar.GetPath(start.GridPosition, goal.GridPosition);
+    //     }
+    // }
 
     private void ClickTile(){
         if(Input.GetMouseButtonDown(1)){    // right mouse button
