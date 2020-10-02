@@ -22,6 +22,7 @@ public class Monster : MonoBehaviour
         Move();
     }
 
+    // called from Game Manager
     public void Spawn(){
         transform.position = LevelManager.Instance.BluePortal.transform.position;
 
@@ -50,7 +51,8 @@ public class Monster : MonoBehaviour
 
         IsActive = true;
         if(remove){
-            Destroy(gameObject);
+            // Destroy(gameObject);
+            Release();
         }
     } 
 
@@ -111,7 +113,15 @@ next direction animation ****/
     private void OnTriggerEnter2D(Collider2D other){
         if(other.tag == "RedPortal"){
             StartCoroutine(Scale(new Vector3(1, 1), new Vector3(0.1f, 0.1f), true));
+            other.GetComponent<Portal>().Open();
         }
     }
 
+    // reset health and status of monster for reuse from object pool
+    private void Release(){
+        IsActive = false;   // reset so monster will not move until done scaling
+        GridPosition = LevelManager.Instance.BlueSpawn;
+        GameManager.Instance.Pool.ReleaseObject(gameObject);
+        GameManager.Instance.RemoveMonster(this);
+    }
 }

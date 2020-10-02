@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5602029735803006155}
   - component: {fileID: 7399477213725019893}
   - component: {fileID: -8603273660326089325}
+  - component: {fileID: 8912275573359779212}
   m_Layer: 0
   m_Name: RedPortal
   m_TagString: RedPortal
@@ -129,3 +130,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2, y: 1.6233333}
   m_EdgeRadius: 0
+--- !u!114 &8912275573359779212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2170871201937411870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f4151b5a81443c49ba5a3745ac46423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myAnimator: {fileID: 0}
