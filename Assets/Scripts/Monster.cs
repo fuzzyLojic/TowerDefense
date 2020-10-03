@@ -114,10 +114,12 @@ next direction animation ****/
         if(other.tag == "RedPortal"){
             StartCoroutine(Scale(new Vector3(1, 1), new Vector3(0.1f, 0.1f), true));
             other.GetComponent<Portal>().Open();
+            GameManager.Instance.Lives--;
         }
     }
 
     // reset health and status of monster for reuse from object pool
+    // called from Scale()
     private void Release(){
         IsActive = false;   // reset so monster will not move until done scaling
         GridPosition = LevelManager.Instance.BlueSpawn;

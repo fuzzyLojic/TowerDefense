@@ -146,7 +146,7 @@ public class LevelManager : Singleton<LevelManager>
 
 
     private void SpawnPortals(){
-        blueSpawn = new Point(0, 0);
+        blueSpawn = new Point(0, 1);
         GameObject tmp = Instantiate(bluePortalPrefab, Tiles[blueSpawn].GetComponent<TileScript>().WorldPosition, Quaternion.identity);
         BluePortal = tmp.GetComponent<Portal>();
         BluePortal.name = "BluePortal";
